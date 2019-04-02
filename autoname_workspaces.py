@@ -106,7 +106,10 @@ WINDOW_ICONS = {
 }
 
 # This icon is used for any application not in the list above
-DEFAULT_ICON = '*'
+# This is the desktop icon from icomoon feather.
+DEFAULT_ICON = u"\uE999"
+# This icon is used for empty workspaces.
+EMPTY_WORKSPACE_ICON = fa.icons['genderless']
 
 # Global setting that determines whether workspaces will be automatically
 # re-numbered in ascending order with a "gap" left on each monitor. This is
@@ -134,6 +137,16 @@ def icon_for_window(window):
     return DEFAULT_ICON
 
 
+def generate_icon_string(workspace):
+    # TODO: Pad icons (min 2 per workspace?)
+    windows = workspace.leaves()
+    if windows:
+        return ' '.join([icon_for_window(w) for w in windows])
+    else:
+        # The empty workspace should still be represented with some icon
+        return EMPTY_WORKSPACE_ICON
+
+
 # renames all workspaces based on the windows present
 # also renumbers them in ascending order, with one gap left between monitors
 # for example: workspace numbering on two monitors: [1, 2, 3], [5, 6]
@@ -145,7 +158,7 @@ def rename_workspaces(i3):
         ws_info = ws_infos[ws_index]
 
         name_parts = parse_workspace_name(workspace.name)
-        new_icons = ' '.join([icon_for_window(w) for w in workspace.leaves()])
+        new_icons = generate_icon_string(workspace)
 
         # As we enumerate, leave one gap in workspace numbers between each monitor.
         # This leaves a space to insert a new one later.
@@ -209,11 +222,18 @@ if __name__ == '__main__':
 
     rename_workspaces(i3)
 
-    # Call rename_workspaces() for relevant window events
-    def event_handler(i3, e):
+    # Call rename_workspaces() for relevant window/workspace events
+
+    def window_event_handler(i3, e):
         if e.change in ['new', 'close', 'move']:
             rename_workspaces(i3)
 
-    i3.on('window', event_handler)
-    i3.on('workspace::move', event_handler)
+    def workspace_event_handler(i3, e):
+        if e.change in ['new', 'close', 'move', 'focus']:
+            rename_workspaces(i3)
+
+    i3.on('window', window_event_handler)
+    i3.on('workspace::move', workspace_event_handler)
+    i3.on('workspace::new', workspace_event_handler)
+    i3.on('workspace::focus', workspace_event_handler)
     i3.main()
