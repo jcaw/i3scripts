@@ -127,7 +127,7 @@ def ensure_window_icons_lowercase():
 def icon_for_window(window):
     # Try all window classes and use the first one we have an icon for
     classes = xprop(window.window, 'WM_CLASS')
-    if classes != None and len(classes) > 0:
+    if classes:
         for cls in classes:
             cls = cls.lower()  # case-insensitive matching
             if cls in WINDOW_ICONS:
