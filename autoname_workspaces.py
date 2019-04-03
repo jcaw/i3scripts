@@ -103,6 +103,10 @@ WINDOW_ICONS = {
     'xournal': fa.icons['file-alt'],
     'yelp': fa.icons['code'],
     'zenity': fa.icons['window-maximize'],
+
+    # Personal additions
+    # Icon for a package in icomoon-feather font.
+    'package-updater': '',
 }
 
 # This icon is used for any application not in the list above
