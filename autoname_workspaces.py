@@ -134,6 +134,7 @@ def icon_for_window(window):
     if classes:
         for cls in classes:
             cls = cls.lower()  # case-insensitive matching
+            # TODO: Maybe fuzzy matching?
             if cls in WINDOW_ICONS:
                 return WINDOW_ICONS[cls]
     logging.info(
