@@ -38,6 +38,14 @@ import fontawesome as fa
 
 from util import NameParts, parse_workspace_name, construct_workspace_name, xprop
 
+
+GENERIC_SYMBOLS = {
+    # Icomoon "left aligned text" symbol
+    "editor": "",
+    "code_editor": fa.icons["code"],
+}
+
+
 # Add icons here for common programs you use.  The keys are the X window class
 # (WM_CLASS) names (lower-cased) and the icons can be any text you want to
 # display.
