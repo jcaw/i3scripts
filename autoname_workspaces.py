@@ -113,7 +113,13 @@ WINDOW_ICONS = {
 # This is the desktop icon from icomoon feather.
 DEFAULT_ICON = u"\uE999"
 # This icon is used for empty workspaces.
-EMPTY_WORKSPACE_ICON = fa.icons['genderless']
+# Icomoon elipsis
+EMPTY_WORKSPACE_ICON = ""
+# Other Options:
+# Small, empty cirlce
+# EMPTY_WORKSPACE_ICON = fa.icons['genderless']
+# FontAwesome elipsis
+# EMPTY_WORKSPACE_ICON = fa.icons['ellipsis-h']
 
 # Global setting that determines whether workspaces will be automatically
 # re-numbered in ascending order with a "gap" left on each monitor. This is
