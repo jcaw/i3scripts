@@ -134,10 +134,10 @@ for terminal in terminals:
 
 # This icon is used for any application not in the list above
 # This is the desktop icon from icomoon feather.
-DEFAULT_ICON = u"\uE999"
+DEFAULT_ICON = u'\uE999'
 # This icon is used for empty workspaces.
 # Icomoon elipsis
-EMPTY_WORKSPACE_ICON = ""
+EMPTY_WORKSPACE_ICON = ''
 # Other Options:
 # Small, empty circle
 # EMPTY_WORKSPACE_ICON = fa.icons['genderless']
@@ -232,13 +232,13 @@ def on_exit(i3):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description=
-        "Rename workspaces dynamically to show icons for running programs.")
+        'Rename workspaces dynamically to show icons for running programs.')
     parser.add_argument(
         '--norenumber_workspaces',
         action='store_true',
         default=False,
-        help=
-        "Disable automatic workspace re-numbering. By default, workspaces are automatically re-numbered in ascending order."
+        help=('Disable automatic workspace re-numbering. By default, '
+              'workspaces are automatically re-numbered in ascending order.')
     )
     args = parser.parse_args()
 
