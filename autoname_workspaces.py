@@ -139,7 +139,7 @@ DEFAULT_ICON = u"\uE999"
 # Icomoon elipsis
 EMPTY_WORKSPACE_ICON = ""
 # Other Options:
-# Small, empty cirlce
+# Small, empty circle
 # EMPTY_WORKSPACE_ICON = fa.icons['genderless']
 # FontAwesome elipsis
 # EMPTY_WORKSPACE_ICON = fa.icons['ellipsis-h']
