@@ -6,6 +6,9 @@
 # Press q to close the cheatsheet.
 
 
+# FIXME: Causes i3 to pop up a blank screen. No longer works. Figure out why.
+
+
 #+Function to extract the contents of another function, as a string.
 #
 # Usage: in_func <function_name1> [ ...<function_name2> ... ]
@@ -22,11 +25,10 @@ in_func()
 #
 # We include this here so it can be tweaked in a normal format before being sent
 # to the bash command.
-#
-# This command was developed by trial and error and is thus completely
-# incomprehensible. I am sorry.
 i3cheatsheet()
 {
+    # This command was developed by trial and error and is thus completely
+    # incomprehensible. I am sorry.
     grep -E "^bindsym" ~/.config/i3/config | awk '{$1=""; print $0}' | sed 's/^ *//g' | grep -vE "^XF86" | tr -s ' ' | awk -F: '{ st = index($0," ");print substr($0,0,st-1) "...." substr($0,st+1)}' | sed "s/\$mod/\⊞/g" | sed "s/\+/ /g" | column -t -s '....' -R 1 -W 2 -T 2 -c 80 | column | pr -2 -w 160 -t | less
 }
 
@@ -36,4 +38,4 @@ i3cheatsheet()
 # wild west.
 COMMAND_FOR_BASH=$(in_func i3cheatsheet)
 # We have to start a subshell to be compatible with urxvt
-i3-sensible-terminal -T 'i3 Shortcuts' -e sh -c "${COMMAND_FOR_BASH}"
+urxvt -T 'i3 Shortcuts' -e sh -c "${COMMAND_FOR_BASH}"
