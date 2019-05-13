@@ -36,4 +36,4 @@ i3cheatsheet()
 # wild west.
 COMMAND_FOR_BASH=$(in_func i3cheatsheet)
 # We have to start a subshell to be compatible with urxvt
-i3-sensible-terminal -T 'i3 Shortcuts' -e sh -c "${COMMAND_FOR_BASH}"
+urxvt -T 'i3 Shortcuts' -e sh -c "${COMMAND_FOR_BASH}"
