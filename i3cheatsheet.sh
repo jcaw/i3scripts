@@ -6,6 +6,9 @@
 # Press q to close the cheatsheet.
 
 
+# FIXME: Causes i3 to pop up a blank screen. No longer works. Figure out why.
+
+
 #+Function to extract the contents of another function, as a string.
 #
 # Usage: in_func <function_name1> [ ...<function_name2> ... ]
