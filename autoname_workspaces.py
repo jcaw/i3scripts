@@ -38,6 +38,32 @@ import fontawesome as fa
 
 from util import NameParts, parse_workspace_name, construct_workspace_name, xprop
 
+
+# Please note that this list is not exhaustive and many of these names are
+# untested.
+terminals = [
+    'alacritty',
+    'gnome-terminal-server',
+    'kitty',
+    'urxvt',
+    'xfce4-terminal',
+    'termite',
+    'terminator',
+    'tilix',
+    'tilda',
+    'rxvt',
+    'xterm',
+    'qterminal',
+    'cool-retro-term',
+    'sakura',
+    'aterm',
+    'eterm',
+    'evilvte'
+    'germinal',
+    'guake',
+]
+terminal_symbol = fa.icons['terminal']
+
 # Add icons here for common programs you use.  The keys are the X window class
 # (WM_CLASS) names (lower-cased) and the icons can be any text you want to
 # display.
@@ -49,7 +75,6 @@ from util import NameParts, parse_workspace_name, construct_workspace_name, xpro
 # xprop (https://linux.die.net/man/1/xprop). Run `xprop | grep WM_CLASS`
 # then click on the application you want to inspect.
 WINDOW_ICONS = {
-    'alacritty': fa.icons['terminal'],
     'atom': fa.icons['code'],
     'banshee': fa.icons['play'],
     'blender': fa.icons['cube'],
@@ -68,7 +93,6 @@ WINDOW_ICONS = {
     'firefox-esr': fa.icons['firefox'],
     'gimp-2.8': fa.icons['image'],
     'gnome-control-center': fa.icons['toggle-on'],
-    'gnome-terminal-server': fa.icons['terminal'],
     'google-chrome': fa.icons['chrome'],
     'gpick': fa.icons['eye-dropper'],
     'imv': fa.icons['image'],
@@ -76,7 +100,6 @@ WINDOW_ICONS = {
     'jetbrains-studio': fa.icons['code'],
     'keybase': fa.icons['key'],
     'kicad': fa.icons['microchip'],
-    'kitty': fa.icons['terminal'],
     'libreoffice': fa.icons['file-alt'],
     'lua5.1': fa.icons['moon'],
     'mpv': fa.icons['tv'],
@@ -98,8 +121,6 @@ WINDOW_ICONS = {
     'thunar': fa.icons['copy'],
     'thunderbird': fa.icons['envelope'],
     'totem': fa.icons['play'],
-    'urxvt': fa.icons['terminal'],
-    'xfce4-terminal': fa.icons['terminal'],
     'xournal': fa.icons['file-alt'],
     'yelp': fa.icons['code'],
     'zenity': fa.icons['window-maximize'],
@@ -108,6 +129,8 @@ WINDOW_ICONS = {
     # Icon for a package in icomoon-feather font.
     'package-updater': '',
 }
+for terminal in terminals:
+    WINDOW_ICONS[terminal] = terminal_symbol
 
 # This icon is used for any application not in the list above
 # This is the desktop icon from icomoon feather.
