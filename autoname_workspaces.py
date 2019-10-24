@@ -84,6 +84,7 @@ WINDOW_ICONS = {
     'discord': fa.icons['comment'],
     'eclipse': fa.icons['code'],
     'emacs': fa.icons['code'],
+    'emacs-snapshot': fa.icons['code'],
     'eog': fa.icons['image'],
     'evince': fa.icons['file-pdf'],
     'evolution': fa.icons['envelope'],
