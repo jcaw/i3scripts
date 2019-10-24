@@ -33,9 +33,7 @@ i3cheatsheet()
 }
 
 # HACK: We now extract the actual text of the function, and send *that* to bash.
-#
-# This is extremely hacky, but it works. Hey, it's a shell script. This is the
-# wild west.
+#   Very hacky.
 COMMAND_FOR_BASH=$(in_func i3cheatsheet)
-# We have to start a subshell to be compatible with urxvt
+# TODO: Swap this away from urxvt
 urxvt -T 'i3 Shortcuts' -e sh -c "${COMMAND_FOR_BASH}"
