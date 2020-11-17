@@ -8,7 +8,7 @@ import subprocess
 import json
 
 # A type that represents a parsed workspace "name".
-NameParts = namedtuple('NameParts', ['num', 'shortname', 'icons'])
+NameParts = namedtuple("NameParts", ["num", "shortname", "icons"])
 
 
 def focused_workspace(i3):
@@ -21,8 +21,7 @@ def focused_workspace(i3):
 # * 'icons' - the string that comes after the
 # Any field that's missing will be None in the returned dict
 def parse_workspace_name(name):
-    m = re.match('(?P<num>\d+):?(?P<shortname>\w+)? ?(?P<icons>.+)?',
-                 name).groupdict()
+    m = re.match("(?P<num>\d+):?(?P<shortname>\w+)? ?(?P<icons>.+)?", name).groupdict()
     return NameParts(**m)
 
 
@@ -31,13 +30,13 @@ def parse_workspace_name(name):
 def construct_workspace_name(parts):
     new_name = str(parts.num)
     if parts.shortname or parts.icons:
-        new_name += ':'
+        new_name += ":"
 
         if parts.shortname:
             new_name += parts.shortname
 
         if parts.icons:
-            new_name += ' ' + parts.icons
+            new_name += " " + parts.icons
 
     return new_name
 
@@ -101,8 +100,9 @@ def focus_output(output):
 def xprop(win_id, property):
     try:
         prop = proc.check_output(
-            ['xprop', '-id', str(win_id), property], stderr=proc.DEVNULL)
-        prop = prop.decode('utf-8')
+            ["xprop", "-id", str(win_id), property], stderr=proc.DEVNULL
+        )
+        prop = prop.decode("utf-8")
         return re.findall('"([^"]*)"', prop)
     except proc.CalledProcessError as e:
         logging.warn("Unable to get property for window '%d'" % win_id)
