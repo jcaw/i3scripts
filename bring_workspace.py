@@ -47,8 +47,7 @@ if __name__ == "__main__":
     elif target_screen and primary_screen != target_screen:
         # Target workspace may be on another screen. If so, we swap workspaces
         # with the main screen.
-        if target_name:
-            workspace_to_screen(primary_ws, target_name)
+        workspace_to_screen(primary_ws, target_name)
         workspace_to_screen(target_ws, primary_name)
     else:
         workspace_to_screen(target_ws_partial, primary_name)
