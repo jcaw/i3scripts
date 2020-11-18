@@ -53,3 +53,4 @@ if __name__ == "__main__":
         workspace_to_screen(target_ws, primary_name)
     else:
         workspace_to_screen(target_ws_partial, primary_name, number=True)
+    # TODO: Center mouse on primary output?
