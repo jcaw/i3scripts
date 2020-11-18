@@ -51,5 +51,4 @@ if __name__ == "__main__":
             workspace_to_screen(primary_ws, target_name)
         workspace_to_screen(target_ws, primary_name)
     else:
-        # Workspace is on the same screen, so just focus it.
-        focus_workspace_number(target_ws_partial)
+        workspace_to_screen(target_ws_partial, primary_name)
