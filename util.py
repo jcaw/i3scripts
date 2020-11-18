@@ -67,10 +67,16 @@ def workspace_screen(workspace, screens):
     return None
 
 
-def workspace_to_screen(workspace, screen):
+def workspace_to_screen(workspace, screen, number=False):
     """Move `workspace` to `screen`."""
     subprocess.run(
-        ["i3-msg", "--", "workspace", "--no-auto-back-and-forth", f"{workspace}"],
+        [
+            "i3-msg",
+            "--",
+            "workspace",
+            "--no-auto-back-and-forth",
+            f"number {workspace}" if number else f"{workspace}",
+        ],
         check=True,
         capture_output=True,
     )

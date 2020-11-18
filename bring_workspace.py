@@ -52,4 +52,4 @@ if __name__ == "__main__":
         workspace_to_screen(primary_ws, target_name)
         workspace_to_screen(target_ws, primary_name)
     else:
-        workspace_to_screen(target_ws_partial, primary_name)
+        workspace_to_screen(target_ws_partial, primary_name, number=True)
