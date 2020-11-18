@@ -39,7 +39,7 @@ if __name__ == "__main__":
     target_ws = target_screen and _workspace(target_screen)
     target_name = target_screen and _name(target_screen)
 
-    if target_ws == primary_ws:
+    if target_ws == primary_ws or target_ws_partial == "auto":
         # Focussing the current workspace should cause the screens to flip.
         next_screen = get_next_screen(primary_screen, screens)
         workspace_to_screen(primary_ws, _name(next_screen))
