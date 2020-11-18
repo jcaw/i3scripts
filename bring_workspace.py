@@ -29,6 +29,8 @@ def _name(screen):
 if __name__ == "__main__":
     target_ws_partial = sys.argv[1]
 
+    # TODO: Some way of bringing all background workspaces to screen one
+
     screens = active_screens()
 
     primary_screen = primary_screen(screens)
