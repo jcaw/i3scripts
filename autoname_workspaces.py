@@ -197,8 +197,11 @@ def rename_workspaces(i3):
 
         # As we enumerate, leave one gap in workspace numbers between each monitor.
         # This leaves a space to insert a new one later.
-        if ws_info.output != prev_output and prev_output != None:
-            n += 1
+        #
+        # jcaw: don't need this since I'm using the primary is dominant model
+        # (see bring_workspace.py).
+        # if ws_info.output != prev_output and prev_output != None:
+        #     n += 1
         prev_output = ws_info.output
 
         # optionally renumber workspace
