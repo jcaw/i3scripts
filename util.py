@@ -68,6 +68,7 @@ def workspace_screen(workspace, screens):
 
 
 def workspace_to_screen(workspace, screen):
+    """Move `workspace` to `screen`."""
     subprocess.run(
         ["i3-msg", "--", "workspace", "--no-auto-back-and-forth", f"{workspace}"],
         check=True,
