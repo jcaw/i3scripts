@@ -9,6 +9,8 @@ from util import (
     workspace_screen,
     workspace_to_screen,
 )
+import subprocess
+from math import floor
 
 
 def get_next_screen(screen, screens):
@@ -53,4 +55,15 @@ if __name__ == "__main__":
         workspace_to_screen(target_ws, primary_name)
     else:
         workspace_to_screen(target_ws_partial, primary_name, number=True)
-    # TODO: Center mouse on primary output?
+    rect = primary_screen["rect"]
+    subprocess.run(
+        [
+            "xdotool",
+            "mousemove",
+            # Offset to bottom right corner.
+            str(rect["x"] + floor(rect["width"] * .92)),
+            str(rect["y"] + floor(rect["height"] * .90)),
+        ],
+        # Don't want to block
+        check=False,
+    )
